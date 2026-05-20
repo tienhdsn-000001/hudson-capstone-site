@@ -119,6 +119,25 @@
       text-align: center;
       padding: 1rem;
     }
+    .poster-photo {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      border: 1px solid var(--color-line);
+      background: var(--color-panel);
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+    }
+    .photo-caption {
+      color: var(--color-muted);
+      font-size: 0.88rem;
+      line-height: 1.35;
+      margin-top: 0.4rem;
+    }
     .metric-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -194,21 +213,26 @@
       </article>
       <article class="panel">
         <div class="panel-title">Final Prototype</div>
-        <div class="photo-box">Insert full prototype photo here</div>
+        <img class="poster-photo" src="assets/prototype-standing.jpg" alt="Completed air pressure cannon standing vertically">
+        <p class="photo-caption">Completed air pressure cannon prototype after paint and assembly.</p>
         <div class="block">
           <h2>Your Solution</h2>
-          <p>The final prototype stores energy in compressed air, shows pressure with a gauge, releases air through a controlled valve or trigger, and launches a lightweight event payload from a barrel or launch tube.</p>
+          <p>The final prototype stores energy in compressed air, shows pressure with a gauge, releases air through blue valve hardware and a handle control, and launches a lightweight event payload from a green/yellow launch tube.</p>
         </div>
         <div class="block">
           <h2>Subsystems</h2>
           <ul>
-            <li>Air chamber or tank</li>
+            <li>Black pressure chamber</li>
             <li>Pressure gauge and fill valve</li>
-            <li>Release valve or trigger</li>
-            <li>Launch tube</li>
-            <li>Support frame</li>
+            <li>Yellow release handle</li>
+            <li>Green/yellow launch tube</li>
+            <li>Alignment brackets</li>
             <li>Safety labels and checklist</li>
           </ul>
+        </div>
+        <div class="photo-grid" aria-label="Prototype close-up photos">
+          <img class="poster-photo" src="assets/pressure-gauge-valve.jpg" alt="Pressure gauge and valve close up">
+          <img class="poster-photo" src="assets/trigger-handle.jpg" alt="Handle close up">
         </div>
         <div class="block">
           <h2>Build Procedure</h2>
@@ -229,6 +253,10 @@
             <li>First-time user checklist test.</li>
             <li>Leak and safety inspection before launching.</li>
           </ul>
+        </div>
+        <div class="block">
+          <h2>User Manual Cycle</h2>
+          <p>Fill → Load → Fire → Refill/Reload → Refire. This short cycle came from the directions sheet so a non-engineering user can repeat the launch process.</p>
         </div>
         <div class="block">
           <h2>Placeholder Results</h2>

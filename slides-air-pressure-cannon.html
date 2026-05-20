@@ -115,6 +115,30 @@
       border: 1px solid var(--color-line);
       padding: 1.4rem;
     }
+    .media-card {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .slide-photo {
+      width: 100%;
+      max-height: 430px;
+      object-fit: cover;
+      border: 1px solid var(--color-line);
+      background: var(--color-panel);
+    }
+    .photo-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .photo-row img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border: 1px solid var(--color-line);
+    }
     .formula {
       font-family: "Courier New", monospace;
       color: var(--color-accent);
@@ -148,6 +172,7 @@
       .deck { height: auto; min-height: 100vh; padding: 5rem 1rem 7rem; }
       .slide { padding: 2rem; min-height: 70vh; }
       .two-col { grid-template-columns: 1fr; }
+      .media-card { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -159,6 +184,7 @@
       <p class="eyebrow">Final Defense</p>
       <h1>Air Pressure Multi-Purpose Event Cannon</h1>
       <p>Hudson Tien, Castro Valley High School, Engineering Design and Development</p>
+      <img class="slide-photo" src="assets/prototype-standing.jpg" alt="Completed air pressure cannon prototype standing vertically">
       <p class="notes">Opening: This project pivoted from a spring-loaded cannon to an air pressure cannon because the final design needed to be safer, more adjustable, and more realistic to build.</p>
     </section>
     <section class="slide">
@@ -193,12 +219,15 @@
     <section class="slide">
       <p class="eyebrow">Final Solution</p>
       <h2>Prototype Subsystems</h2>
-      <ul>
-        <li>Air chamber or tank stores launch energy.</li>
-        <li>Gauge and valves let the user fill, check, and release pressure.</li>
-        <li>Launch tube guides the payload.</li>
-        <li>Frame, labels, and checklist support safe operation.</li>
-      </ul>
+      <div class="media-card">
+        <img class="slide-photo" src="assets/prototype-overview-painted.jpg" alt="Painted air cannon prototype laid flat">
+        <ul>
+          <li>Black pressure chamber stores launch energy.</li>
+          <li>Gauge and blue valve hardware control the pressure path.</li>
+          <li>Green/yellow launch tube guides the payload.</li>
+          <li>Brackets keep the two pipe assemblies aligned.</li>
+        </ul>
+      </div>
     </section>
     <section class="slide">
       <p class="eyebrow">STEM</p>
@@ -228,6 +257,19 @@
       </ul>
     </section>
     <section class="slide">
+      <p class="eyebrow">User Manual</p>
+      <h2>Fill, Load, Fire, Refill, Refire</h2>
+      <div class="media-card">
+        <img class="slide-photo" src="assets/pressure-gauge-valve.jpg" alt="Pressure gauge and valve close up">
+        <ul>
+          <li>Fill until the gauge reaches the selected safe pressure.</li>
+          <li>Load the shirt, confetti, or test payload.</li>
+          <li>Fire only into the safe launch area.</li>
+          <li>Reset the valve path, refill, reload, and repeat.</li>
+        </ul>
+      </div>
+    </section>
+    <section class="slide">
       <p class="eyebrow">Placeholder Data</p>
       <h2>Replace With Your Measurements</h2>
       <div class="two-col">
@@ -240,6 +282,10 @@
     <section class="slide">
       <p class="eyebrow">Evaluation</p>
       <h2>What Reviewers Should Confirm</h2>
+      <div class="photo-row">
+        <img src="assets/trigger-handle.jpg" alt="Release handle close up">
+        <img src="assets/hardware-install.jpg" alt="Hardware being installed by hand">
+      </div>
       <ul>
         <li>Pressure limits and labels are clear.</li>
         <li>Operation is easier than the old cannon.</li>
@@ -270,7 +316,7 @@
   </main>
   <nav class="controls" aria-label="Slide controls">
     <button id="prev" aria-label="Previous slide">Previous</button>
-    <span class="progress" id="progress">1 / 14</span>
+    <span class="progress" id="progress">1 / 15</span>
     <button id="next" aria-label="Next slide">Next</button>
   </nav>
   <script>

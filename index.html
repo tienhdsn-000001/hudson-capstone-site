@@ -150,6 +150,65 @@
       color: var(--color-muted);
       padding: 1rem;
     }
+    .hero-photo,
+    .gallery-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border: 1px solid var(--color-line);
+      background: var(--color-panel);
+    }
+    .hero-photo {
+      min-height: 320px;
+      max-height: 470px;
+    }
+    figure {
+      margin: 0;
+      background: var(--color-panel);
+      border: 1px solid var(--color-line);
+      padding: 0.7rem;
+    }
+    figcaption {
+      color: var(--color-muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+      margin-top: 0.55rem;
+    }
+    .figure-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .gallery-photo {
+      aspect-ratio: 4 / 3;
+    }
+    .manual-steps {
+      counter-reset: manual-step;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .manual-step {
+      counter-increment: manual-step;
+      background: var(--color-panel);
+      border: 1px solid var(--color-line);
+      padding: 1rem;
+    }
+    .manual-step::before {
+      content: counter(manual-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.7rem;
+      height: 1.7rem;
+      margin-bottom: 0.65rem;
+      border-radius: 999px;
+      background: var(--color-accent);
+      color: var(--color-bg);
+      font-weight: 700;
+    }
     main {
       width: min(1180px, 92vw);
       margin: 0 auto;
@@ -222,6 +281,8 @@
       nav { justify-content: flex-start; }
       header { grid-template-columns: 1fr; padding-top: 4rem; }
       .grid { grid-template-columns: 1fr; }
+      .figure-grid { grid-template-columns: 1fr; }
+      .manual-steps { grid-template-columns: 1fr; }
       .bar-row { grid-template-columns: 1fr; gap: 0.3rem; }
     }
   </style>
@@ -250,10 +311,11 @@
         <a class="action-link" href="slides-air-pressure-cannon.html">Open Slideshow</a>
         <a class="action-link" href="air-pressure-cannon-presentation.pptx">Download PowerPoint</a>
         <a class="action-link" href="poster-air-pressure-cannon.html">Open Poster Draft</a>
+        <a class="action-link" href="assets/air-cannon-directions.pdf">Download Directions PDF</a>
       </div>
     </div>
     <aside class="hero-card">
-      <div class="photo-placeholder">Insert final prototype photo</div>
+      <img class="hero-photo" src="assets/prototype-standing.jpg" alt="Completed air pressure cannon standing near a doorway">
       <p><strong>Designer:</strong> Hudson Tien</p>
       <p><strong>School:</strong> Castro Valley High School</p>
       <p><strong>Course:</strong> Engineering Design and Development</p>
@@ -335,21 +397,64 @@
     <section id="prototype">
       <p class="eyebrow">Element G</p>
       <h2>Final Prototype</h2>
-      <p>The final prototype is an air pressure launcher with clear subsystems. Replace the generic names below with exact part names from the final build.</p>
+      <p>The final prototype is an air pressure launcher made from paired pipe assemblies, a pressure gauge, valve hardware, 3D-printed or fabricated brackets, and a painted body. The design makes the pressure path visible so the operator can check the system before firing.</p>
       <div class="grid">
-        <div class="photo-placeholder">Insert labeled subsystem diagram</div>
+        <figure>
+          <img class="gallery-photo" src="assets/prototype-overview-painted.jpg" alt="Painted prototype laid flat showing the two main pipe assemblies">
+          <figcaption>Completed painted prototype showing the paired air chamber and launch tube layout.</figcaption>
+        </figure>
         <div class="card">
           <h3>Subsystems</h3>
           <ul>
-            <li>Air chamber or tank stores energy.</li>
-            <li>Pressure gauge confirms operating state.</li>
-            <li>Fill valve prepares the system.</li>
-            <li>Release valve or trigger launches the payload.</li>
-            <li>Launch tube guides the payload.</li>
-            <li>Frame and labels support safe use.</li>
+            <li>Black pressure chamber stores compressed air before launch.</li>
+            <li>Pressure gauge lets the operator confirm the launch pressure.</li>
+            <li>Blue valve hardware controls the fill and release path.</li>
+            <li>Yellow handle functions as the operator release control.</li>
+            <li>Green/yellow launch tube guides the payload.</li>
+            <li>Brackets keep the air chamber and launch tube aligned.</li>
           </ul>
         </div>
       </div>
+      <div class="figure-grid" aria-label="Prototype photo gallery">
+        <figure>
+          <img class="gallery-photo" src="assets/pressure-gauge-valve.jpg" alt="Close up of pressure gauge and blue valve plumbing">
+          <figcaption>Pressure gauge and valve path. This is the main operator feedback point before launch.</figcaption>
+        </figure>
+        <figure>
+          <img class="gallery-photo" src="assets/trigger-handle.jpg" alt="Close up of yellow handle release mechanism">
+          <figcaption>Handle and release area. The control is placed where the user can operate it without touching the launch opening.</figcaption>
+        </figure>
+        <figure>
+          <img class="gallery-photo" src="assets/unpainted-layout.jpg" alt="Unpainted prototype layout on the shop floor">
+          <figcaption>Earlier unpainted build layout before final paint and finishing.</figcaption>
+        </figure>
+        <figure>
+          <img class="gallery-photo" src="assets/painted-assembly.jpg" alt="Painted prototype assembly with gauge and handle visible">
+          <figcaption>Painted assembly after hardware was attached and the final shape was visible.</figcaption>
+        </figure>
+        <figure>
+          <img class="gallery-photo" src="assets/hardware-install.jpg" alt="Gloved hand installing hardware on the air cannon">
+          <figcaption>Hardware installation and adjustment during the build process.</figcaption>
+        </figure>
+        <figure>
+          <img class="gallery-photo" src="assets/prototype-standing.jpg" alt="Completed prototype standing vertically">
+          <figcaption>Standing prototype view, showing how the final device reads as a complete event launcher.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="manual">
+      <p class="eyebrow">User Manual</p>
+      <h2>Operating Cycle</h2>
+      <p>The direction sheet reduces the launcher into a simple repeatable sequence. The user starts by preparing air pressure, loads the payload, fires, then returns to the refill and reload cycle.</p>
+      <div class="manual-steps" aria-label="Air cannon operating steps">
+        <div class="manual-step"><h3>Fill</h3><p>Add air until the gauge reaches the selected safe pressure.</p></div>
+        <div class="manual-step"><h3>Load</h3><p>Place the shirt, confetti, or test payload into the launch tube.</p></div>
+        <div class="manual-step"><h3>Fire</h3><p>Point into the safe launch area and use the release handle.</p></div>
+        <div class="manual-step"><h3>Refill/Reload</h3><p>Reset the valve path, refill air, and load the next payload.</p></div>
+        <div class="manual-step"><h3>Refire</h3><p>Repeat the same pressure and loading process for consistent results.</p></div>
+      </div>
+      <p><a class="action-link" href="assets/air-cannon-directions.pdf">Download original directions PDF</a></p>
     </section>
 
     <section id="testing">

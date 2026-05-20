@@ -8,6 +8,7 @@ Static portfolio website for Hudson Tien's PLTW Engineering Design and Developme
 - `slides-air-pressure-cannon.html` - Browser-based slideshow presentation.
 - `air-pressure-cannon-presentation.pptx` - Editable PowerPoint fallback deck.
 - `poster-air-pressure-cannon.html` - Browser-based poster draft.
+- `assets/` - Compressed prototype photos and the original directions PDF.
 - `.nojekyll` - Tells GitHub Pages to serve the files directly.
 
 ## Publish With GitHub Pages
