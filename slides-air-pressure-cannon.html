@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Air Pressure Cannon Final Presentation</title>
+  <style>
+    :root[data-theme="dark"] {
+      --color-bg: #101312;
+      --color-surface: #17201d;
+      --color-text: #f2f0e8;
+      --color-muted: #b8c4b8;
+      --color-accent: #d89b3d;
+      --color-line: #365144;
+      --color-panel: #1e2d28;
+    }
+    :root[data-theme="light"] {
+      --color-bg: #f5f1e8;
+      --color-surface: #ffffff;
+      --color-text: #1d241f;
+      --color-muted: #4f5f55;
+      --color-accent: #a76517;
+      --color-line: #bac7bd;
+      --color-panel: #ebe4d7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top left, rgba(216, 155, 61, 0.18), transparent 32rem), var(--color-bg);
+      color: var(--color-text);
+      font-family: Georgia, "Times New Roman", serif;
+      overflow: hidden;
+    }
+    button {
+      font: inherit;
+      color: var(--color-text);
+      background: var(--color-surface);
+      border: 1px solid var(--color-line);
+      border-radius: 999px;
+      padding: 0.65rem 1rem;
+      cursor: pointer;
+    }
+    button:hover { border-color: var(--color-accent); }
+    button:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 20;
+    }
+    .site-link {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 20;
+      text-decoration: none;
+      font: inherit;
+      color: var(--color-text);
+      background: var(--color-surface);
+      border: 1px solid var(--color-line);
+      border-radius: 999px;
+      padding: 0.65rem 1rem;
+    }
+    .site-link:hover { border-color: var(--color-accent); }
+    .site-link:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+    .deck {
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 5rem 4rem 6rem;
+    }
+    .slide {
+      display: none;
+      width: min(1100px, 92vw);
+      min-height: min(660px, 75vh);
+      background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+      border: 1px solid var(--color-line);
+      padding: 4rem;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+    }
+    .slide.active { display: grid; align-content: center; gap: 1.5rem; }
+    .eyebrow {
+      color: var(--color-accent);
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    h1, h2 {
+      margin: 0;
+      line-height: 1.02;
+      font-weight: 700;
+    }
+    h1 { font-size: clamp(3rem, 7vw, 6.8rem); }
+    h2 { font-size: clamp(2.2rem, 5vw, 4.7rem); }
+    p, li {
+      font-size: clamp(1.25rem, 2.1vw, 1.85rem);
+      line-height: 1.42;
+    }
+    ul {
+      margin: 0;
+      padding-left: 1.4rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .card {
+      background: var(--color-panel);
+      border: 1px solid var(--color-line);
+      padding: 1.4rem;
+    }
+    .formula {
+      font-family: "Courier New", monospace;
+      color: var(--color-accent);
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      margin: 0;
+    }
+    .controls {
+      position: fixed;
+      left: 50%;
+      bottom: 1rem;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      z-index: 20;
+    }
+    .progress {
+      min-width: 8rem;
+      text-align: center;
+      color: var(--color-muted);
+      font-size: 1rem;
+    }
+    .notes {
+      color: var(--color-muted);
+      border-top: 1px solid var(--color-line);
+      padding-top: 1rem;
+      font-size: 1rem;
+    }
+    @media (max-width: 760px) {
+      body { overflow: auto; }
+      .deck { height: auto; min-height: 100vh; padding: 5rem 1rem 7rem; }
+      .slide { padding: 2rem; min-height: 70vh; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a class="site-link" href="index.html">Portfolio Site</a>
+  <button class="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
+  <main class="deck" aria-live="polite">
+    <section class="slide active">
+      <p class="eyebrow">Final Defense</p>
+      <h1>Air Pressure Multi-Purpose Event Cannon</h1>
+      <p>Hudson Tien, Castro Valley High School, Engineering Design and Development</p>
+      <p class="notes">Opening: This project pivoted from a spring-loaded cannon to an air pressure cannon because the final design needed to be safer, more adjustable, and more realistic to build.</p>
+    </section>
+    <section class="slide">
+      <p class="eyebrow">Problem</p>
+      <h2>Events Need Distance Without Complexity</h2>
+      <p>CVHS needs a safe, reliable launcher that can send school event items farther than a normal throw without requiring Leadership or event staff to understand complicated equipment.</p>
+    </section>
+    <section class="slide">
+      <p class="eyebrow">Stakeholders</p>
+      <h2>Designed Around Actual Users</h2>
+      <ul>
+        <li>Leadership class needs fast setup and simple operation.</li>
+        <li>Students need shirts and confetti to reach more of the crowd.</li>
+        <li>Coaches and event organizers need safety and predictability.</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <p class="eyebrow">Research</p>
+      <h2>Existing Solutions Were Incomplete</h2>
+      <div class="two-col">
+        <div class="card"><p>Hand throwing is cheap but inconsistent and limited by fatigue.</p></div>
+        <div class="card"><p>Commercial launchers work well but are expensive for a school project.</p></div>
+        <div class="card"><p>The old school cannon was not used because setup was not intuitive.</p></div>
+        <div class="card"><p>The spring concept required high forces and custom manufacturing.</p></div>
+      </div>
+    </section>
+    <section class="slide">
+      <p class="eyebrow">Pivot</p>
+      <h2>Why the Design Changed</h2>
+      <p>The spring-loaded concept looked simple, but the force and manufacturing requirements made it a poor fit. Regulated air pressure made the design adjustable, testable, and easier to explain to non-engineering users.</p>
+    </section>
+    <section class="slide">
+      <p class="eyebrow">Final Solution</p>
+      <h2>Prototype Subsystems</h2>
+      <ul>
+        <li>Air chamber or tank stores launch energy.</li>
+        <li>Gauge and valves let the user fill, check, and release pressure.</li>
+        <li>Launch tube guides the payload.</li>
+        <li>Frame, labels, and checklist support safe operation.</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <p class="eyebrow">STEM</p>
+      <h2>Pressure Creates Launch Force</h2>
+      <p class="formula">F = P x A</p>
+      <p>Air pressure applies force across the barrel area. More pressure generally creates more launch force, but the safe operating range is limited by the weakest rated component.</p>
+    </section>
+    <section class="slide">
+      <p class="eyebrow">Requirements</p>
+      <h2>Measured Against User Needs</h2>
+      <ul>
+        <li>Learn operation in under 2 minutes.</li>
+        <li>Reload in under 60 seconds.</li>
+        <li>Reach at least 60 feet with a standard shirt bundle.</li>
+        <li>Show pressure before launch.</li>
+        <li>Moveable by one or two students.</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <p class="eyebrow">Testing</p>
+      <h2>Test Plan</h2>
+      <ul>
+        <li>Range test at multiple pressure levels.</li>
+        <li>Reload time test with repeated launches.</li>
+        <li>Usability test with a first-time user.</li>
+        <li>Leak and safety review before operation.</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <p class="eyebrow">Placeholder Data</p>
+      <h2>Replace With Your Measurements</h2>
+      <div class="two-col">
+        <div class="card"><p>30 psi: 35 ft average</p></div>
+        <div class="card"><p>45 psi: 63 ft average</p></div>
+        <div class="card"><p>60 psi: 82 ft average</p></div>
+        <div class="card"><p>Reload time: 35 sec average</p></div>
+      </div>
+    </section>
+    <section class="slide">
+      <p class="eyebrow">Evaluation</p>
+      <h2>What Reviewers Should Confirm</h2>
+      <ul>
+        <li>Pressure limits and labels are clear.</li>
+        <li>Operation is easier than the old cannon.</li>
+        <li>Frame and mounts are strong enough for repeated use.</li>
+        <li>Testing data supports the final claims.</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <p class="eyebrow">Reflection</p>
+      <h2>The First Idea Was Not the Best Final Design</h2>
+      <p>The project showed that engineering is not protecting the original concept. It is changing the concept when evidence shows a better path.</p>
+    </section>
+    <section class="slide">
+      <p class="eyebrow">Next Steps</p>
+      <h2>Recommended Improvements</h2>
+      <ul>
+        <li>Add permanent brackets and a transport case.</li>
+        <li>Attach a printed checklist to the frame.</li>
+        <li>Test more payload shapes and masses.</li>
+        <li>Add a fixed angle indicator for repeatability.</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <p class="eyebrow">Conclusion</p>
+      <h2>Useful Means Usable</h2>
+      <p>The final air pressure prototype better solves the event problem because it balances launch performance with simple operation, safety checks, and repeatable testing.</p>
+    </section>
+  </main>
+  <nav class="controls" aria-label="Slide controls">
+    <button id="prev" aria-label="Previous slide">Previous</button>
+    <span class="progress" id="progress">1 / 14</span>
+    <button id="next" aria-label="Next slide">Next</button>
+  </nav>
+  <script>
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const progress = document.querySelector("#progress");
+    let current = 0;
+
+    function showSlide(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => {
+        slide.classList.toggle("active", slideIndex === current);
+      });
+      progress.textContent = `${current + 1} / ${slides.length}`;
+    }
+
+    document.querySelector("#prev").addEventListener("click", () => showSlide(current - 1));
+    document.querySelector("#next").addEventListener("click", () => showSlide(current + 1));
+    document.querySelector(".theme-toggle").addEventListener("click", () => {
+      const html = document.documentElement;
+      html.dataset.theme = html.dataset.theme === "dark" ? "light" : "dark";
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight" || event.key === " ") showSlide(current + 1);
+      if (event.key === "ArrowLeft") showSlide(current - 1);
+    });
+  </script>
+</body>
+</html>
+

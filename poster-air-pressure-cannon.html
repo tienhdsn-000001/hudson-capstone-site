@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Air Pressure Cannon Poster Board</title>
+  <style>
+    :root[data-theme="dark"] {
+      --color-bg: #101312;
+      --color-surface: #17201d;
+      --color-text: #f2f0e8;
+      --color-muted: #b8c4b8;
+      --color-accent: #d89b3d;
+      --color-line: #365144;
+      --color-panel: #1e2d28;
+    }
+    :root[data-theme="light"] {
+      --color-bg: #f6f1e7;
+      --color-surface: #fffaf0;
+      --color-text: #1d241f;
+      --color-muted: #4f5f55;
+      --color-accent: #a76517;
+      --color-line: #c7bca8;
+      --color-panel: #ece2d1;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: "Trebuchet MS", Verdana, sans-serif;
+      min-height: 100vh;
+    }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      gap: 0.75rem;
+      justify-content: flex-end;
+      padding: 1rem;
+      background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+      border-bottom: 1px solid var(--color-line);
+      backdrop-filter: blur(10px);
+    }
+    button {
+      border: 1px solid var(--color-line);
+      background: var(--color-surface);
+      color: var(--color-text);
+      padding: 0.65rem 0.9rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover { border-color: var(--color-accent); }
+    button:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+    .wrap {
+      width: min(1500px, 96vw);
+      margin: 0 auto;
+      padding: 1rem 0 3rem;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem 2.5rem;
+    }
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.6rem, 5vw, 5.4rem);
+      line-height: 1;
+    }
+    .subtitle {
+      color: var(--color-muted);
+      font-size: clamp(1rem, 2vw, 1.45rem);
+      margin: 1rem auto 0;
+      max-width: 900px;
+    }
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .panel {
+      background: var(--color-surface);
+      border: 2px solid var(--color-line);
+      min-height: 900px;
+      padding: 1rem;
+      display: grid;
+      gap: 1rem;
+      align-content: start;
+    }
+    .panel-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      color: var(--color-accent);
+      border-bottom: 2px solid var(--color-line);
+      padding-bottom: 0.45rem;
+    }
+    .block {
+      background: var(--color-panel);
+      border: 1px solid var(--color-line);
+      padding: 1rem;
+    }
+    h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.3rem;
+      color: var(--color-accent);
+    }
+    p, li {
+      line-height: 1.38;
+      font-size: 1rem;
+    }
+    ul { margin: 0; padding-left: 1.2rem; }
+    .photo-box {
+      border: 2px dashed var(--color-line);
+      min-height: 130px;
+      display: grid;
+      place-items: center;
+      color: var(--color-muted);
+      text-align: center;
+      padding: 1rem;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.6rem;
+    }
+    .metric {
+      border: 1px solid var(--color-line);
+      padding: 0.75rem;
+      background: color-mix(in srgb, var(--color-panel) 80%, var(--color-accent));
+    }
+    .metric strong {
+      display: block;
+      font-size: 1.2rem;
+      color: var(--color-accent);
+    }
+    details {
+      border-top: 1px solid var(--color-line);
+      padding-top: 0.75rem;
+    }
+    summary {
+      color: var(--color-accent);
+      cursor: pointer;
+      font-weight: 700;
+    }
+    @media (max-width: 950px) {
+      .board { grid-template-columns: 1fr; }
+      .panel { min-height: auto; }
+    }
+    @media print {
+      .topbar { display: none; }
+      body { background: white; color: black; }
+      .wrap { width: 100%; padding: 0; }
+      .board { gap: 0.2in; }
+      .panel { break-inside: avoid; min-height: 9in; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <button class="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
+    <button class="expand-toggle" aria-label="Expand or collapse review notes">Toggle Notes</button>
+    <button class="print-button" aria-label="Print poster">Print</button>
+  </div>
+  <main class="wrap">
+    <header>
+      <h1>From Spring Force to Air Pressure</h1>
+      <p class="subtitle">A safer, simpler multi-purpose event cannon for CVHS rallies, games, shirts, and confetti.</p>
+    </header>
+    <section class="board" aria-label="Three panel poster board">
+      <article class="panel">
+        <div class="panel-title">Problem and Research</div>
+        <div class="block">
+          <h2>Problem Statement</h2>
+          <p>CVHS needs a safe, reliable launcher that can send event items farther than a normal throw without requiring Leadership students or event staff to understand complicated equipment.</p>
+        </div>
+        <div class="block">
+          <h2>Justification</h2>
+          <p>The old school cannon was returned to engineering because users did not consistently know how to set it up. That means the real problem is launch distance plus simple operation.</p>
+        </div>
+        <div class="block">
+          <h2>Similar Solutions</h2>
+          <ul>
+            <li>Hand throwing: free, but inconsistent.</li>
+            <li>Commercial launchers: strong, but expensive.</li>
+            <li>Spring concept: direct, but high-force and difficult to build safely.</li>
+            <li>Air pressure prototype: adjustable and testable.</li>
+          </ul>
+        </div>
+        <details>
+          <summary>Review note</summary>
+          <p>Add exact source citations and any real quote from Leadership about the old cannon.</p>
+        </details>
+      </article>
+      <article class="panel">
+        <div class="panel-title">Final Prototype</div>
+        <div class="photo-box">Insert full prototype photo here</div>
+        <div class="block">
+          <h2>Your Solution</h2>
+          <p>The final prototype stores energy in compressed air, shows pressure with a gauge, releases air through a controlled valve or trigger, and launches a lightweight event payload from a barrel or launch tube.</p>
+        </div>
+        <div class="block">
+          <h2>Subsystems</h2>
+          <ul>
+            <li>Air chamber or tank</li>
+            <li>Pressure gauge and fill valve</li>
+            <li>Release valve or trigger</li>
+            <li>Launch tube</li>
+            <li>Support frame</li>
+            <li>Safety labels and checklist</li>
+          </ul>
+        </div>
+        <div class="block">
+          <h2>Build Procedure</h2>
+          <p>Research, spring concept, feasibility review, air pressure pivot, prototype build, safety labeling, range testing, usability testing.</p>
+        </div>
+        <details>
+          <summary>Review note</summary>
+          <p>Replace generic subsystem names with exact part names from the final build.</p>
+        </details>
+      </article>
+      <article class="panel">
+        <div class="panel-title">Testing and Results</div>
+        <div class="block">
+          <h2>Testing Method</h2>
+          <ul>
+            <li>Range test at multiple pressure levels.</li>
+            <li>Reload time test.</li>
+            <li>First-time user checklist test.</li>
+            <li>Leak and safety inspection before launching.</li>
+          </ul>
+        </div>
+        <div class="block">
+          <h2>Placeholder Results</h2>
+          <div class="metric-grid">
+            <div class="metric"><strong>35 ft</strong>30 psi average</div>
+            <div class="metric"><strong>63 ft</strong>45 psi average</div>
+            <div class="metric"><strong>82 ft</strong>60 psi average</div>
+            <div class="metric"><strong>35 sec</strong>reload average</div>
+          </div>
+        </div>
+        <div class="block">
+          <h2>Conclusion</h2>
+          <p>The air pressure version better solves the event problem because it balances useful launch distance with simple controls, visible safety checks, and repeatable testing.</p>
+        </div>
+        <div class="block">
+          <h2>Next Steps</h2>
+          <ul>
+            <li>Add permanent brackets.</li>
+            <li>Attach operating checklist to the frame.</li>
+            <li>Test more payload shapes.</li>
+            <li>Add a fixed angle indicator.</li>
+          </ul>
+        </div>
+        <details>
+          <summary>Review note</summary>
+          <p>Replace all results with actual measured data and add one graph before printing.</p>
+        </details>
+      </article>
+    </section>
+  </main>
+  <script>
+    const html = document.documentElement;
+    document.querySelector(".theme-toggle").addEventListener("click", () => {
+      html.dataset.theme = html.dataset.theme === "dark" ? "light" : "dark";
+    });
+    document.querySelector(".print-button").addEventListener("click", () => window.print());
+    document.querySelector(".expand-toggle").addEventListener("click", () => {
+      const details = Array.from(document.querySelectorAll("details"));
+      const shouldOpen = details.some((item) => !item.open);
+      details.forEach((item) => {
+        item.open = shouldOpen;
+      });
+    });
+  </script>
+</body>
+</html>
+

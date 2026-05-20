@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hudson Tien Engineering Portfolio</title>
+  <style>
+    :root[data-theme="dark"] {
+      --color-bg: #101312;
+      --color-surface: #17201d;
+      --color-text: #f2f0e8;
+      --color-muted: #b8c4b8;
+      --color-accent: #d89b3d;
+      --color-line: #365144;
+      --color-panel: #1e2d28;
+    }
+    :root[data-theme="light"] {
+      --color-bg: #f6f1e7;
+      --color-surface: #fffaf0;
+      --color-text: #1d241f;
+      --color-muted: #4f5f55;
+      --color-accent: #a76517;
+      --color-line: #c7bca8;
+      --color-panel: #ece2d1;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: "Trebuchet MS", Verdana, sans-serif;
+    }
+    a { color: inherit; }
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -4rem;
+      background: var(--color-accent);
+      color: var(--color-bg);
+      padding: 0.75rem 1rem;
+      z-index: 100;
+    }
+    .skip-link:focus { top: 1rem; }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.9rem 4vw;
+      background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+      border-bottom: 1px solid var(--color-line);
+      backdrop-filter: blur(10px);
+    }
+    .brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.25rem;
+      color: var(--color-accent);
+      white-space: nowrap;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      justify-content: flex-end;
+    }
+    nav a, button {
+      border: 1px solid var(--color-line);
+      background: var(--color-surface);
+      color: var(--color-text);
+      text-decoration: none;
+      padding: 0.55rem 0.75rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.92rem;
+    }
+    nav a:hover, button:hover { border-color: var(--color-accent); }
+    nav a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+    header {
+      padding: 7rem 4vw 5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
+      gap: 3rem;
+      align-items: center;
+      min-height: 78vh;
+    }
+    .eyebrow {
+      color: var(--color-accent);
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 0.86rem;
+    }
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.05;
+      margin: 0;
+    }
+    h1 { font-size: clamp(3rem, 7vw, 6.6rem); }
+    h2 { font-size: clamp(2rem, 4vw, 4rem); }
+    h3 { font-size: 1.45rem; color: var(--color-accent); }
+    p, li {
+      line-height: 1.62;
+      font-size: 1.04rem;
+    }
+    .lede {
+      color: var(--color-muted);
+      max-width: 850px;
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+    }
+    .hero-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-line);
+      padding: 1.3rem;
+    }
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .action-link {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--color-line);
+      background: var(--color-surface);
+      color: var(--color-text);
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+    }
+    .action-link:hover { border-color: var(--color-accent); }
+    .action-link:focus-visible {
+      outline: 3px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+    .photo-placeholder {
+      min-height: 260px;
+      border: 2px dashed var(--color-line);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--color-muted);
+      padding: 1rem;
+    }
+    main {
+      width: min(1180px, 92vw);
+      margin: 0 auto;
+      display: grid;
+      gap: 2rem;
+      padding-bottom: 5rem;
+    }
+    section {
+      background: var(--color-surface);
+      border: 1px solid var(--color-line);
+      padding: clamp(1.4rem, 4vw, 3rem);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: var(--color-panel);
+      border: 1px solid var(--color-line);
+      padding: 1rem;
+    }
+    .callout {
+      border-left: 5px solid var(--color-accent);
+      background: var(--color-panel);
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      overflow: hidden;
+    }
+    th, td {
+      border: 1px solid var(--color-line);
+      padding: 0.75rem;
+      text-align: left;
+    }
+    th { color: var(--color-accent); background: var(--color-panel); }
+    .bars {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 5rem 1fr 4rem;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .bar-track {
+      height: 1rem;
+      background: var(--color-panel);
+      border: 1px solid var(--color-line);
+    }
+    .bar-fill {
+      height: 100%;
+      background: var(--color-accent);
+    }
+    footer {
+      padding: 2rem 4vw;
+      border-top: 1px solid var(--color-line);
+      color: var(--color-muted);
+      text-align: center;
+    }
+    @media (max-width: 850px) {
+      .topbar { align-items: flex-start; flex-direction: column; }
+      nav { justify-content: flex-start; }
+      header { grid-template-columns: 1fr; padding-top: 4rem; }
+      .grid { grid-template-columns: 1fr; }
+      .bar-row { grid-template-columns: 1fr; gap: 0.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="topbar">
+    <div class="brand">Hudson Tien EDD Portfolio</div>
+    <nav aria-label="Portfolio sections">
+      <a href="#problem">Problem</a>
+      <a href="#research">Research</a>
+      <a href="#design">Design</a>
+      <a href="#prototype">Prototype</a>
+      <a href="#testing">Testing</a>
+      <a href="#reflection">Reflection</a>
+      <button class="theme-toggle" type="button">Toggle Theme</button>
+    </nav>
+  </div>
+
+  <header>
+    <div>
+      <p class="eyebrow">Engineering Design and Development</p>
+      <h1>Air Pressure Multi-Purpose Event Cannon</h1>
+      <p class="lede">A functional prototype for CVHS events that pivoted from spring-loaded force to regulated air pressure after feasibility testing showed that the final design needed to be safer, more adjustable, and easier to use.</p>
+      <div class="action-row" aria-label="Related deliverables">
+        <a class="action-link" href="slides-air-pressure-cannon.html">Open Slideshow</a>
+        <a class="action-link" href="poster-air-pressure-cannon.html">Open Poster Draft</a>
+      </div>
+    </div>
+    <aside class="hero-card">
+      <div class="photo-placeholder">Insert final prototype photo</div>
+      <p><strong>Designer:</strong> Hudson Tien</p>
+      <p><strong>School:</strong> Castro Valley High School</p>
+      <p><strong>Course:</strong> Engineering Design and Development</p>
+    </aside>
+  </header>
+
+  <main id="main">
+    <section id="problem">
+      <p class="eyebrow">Elements A and C</p>
+      <h2>Problem and Requirements</h2>
+      <p>CVHS needs a safe, reliable, easy-to-use launcher that can send school event items farther than a normal throw without requiring Leadership students, coaches, or event staff to understand complicated launcher mechanics.</p>
+      <div class="callout">
+        The deeper problem is usability. A launcher that works mechanically but is abandoned by the intended users does not solve the event problem.
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Stakeholders</h3>
+          <ul>
+            <li>Leadership class</li>
+            <li>Sports teams and coaches</li>
+            <li>Students in the stands</li>
+            <li>Event organizers</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Design Requirements</h3>
+          <ul>
+            <li>Learn operation in under 2 minutes.</li>
+            <li>Reload in under 60 seconds.</li>
+            <li>Reach at least 60 feet with a standard payload.</li>
+            <li>Show pressure before every launch.</li>
+            <li>Moveable by one or two students.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <p class="eyebrow">Element B</p>
+      <h2>Prior Solutions</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Hand Throwing</h3>
+          <p>Very low cost and easy to understand, but range depends on strength, fatigue, and skill.</p>
+        </div>
+        <div class="card">
+          <h3>Previous School Cannon</h3>
+          <p>Already demonstrated that a launcher can still fail if users do not want to set it up.</p>
+        </div>
+        <div class="card">
+          <h3>Commercial Launchers</h3>
+          <p>Strong and polished, but too expensive for a low-cost school prototype.</p>
+        </div>
+        <div class="card">
+          <h3>Spring Concept</h3>
+          <p>Mechanically direct, but required high spring force and difficult custom manufacturing.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="design">
+      <p class="eyebrow">Elements D, E, and F</p>
+      <h2>Design Pivot</h2>
+      <p>The project began with a spring-loaded cannon concept. That idea looked simple because a spring is familiar, but calculations and build planning showed that the required force would create manufacturing and safety problems. The final design pivoted to air pressure because it made the launch energy adjustable and testable in controlled steps.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Pressure Force</h3>
+          <p><code>F = P x A</code></p>
+          <p>Compressed air applies force across the barrel area. More pressure generally means more launch force, limited by component ratings.</p>
+        </div>
+        <div class="card">
+          <h3>Projectile Motion</h3>
+          <p><code>R = v^2 sin(2 theta) / g</code></p>
+          <p>Range depends on exit speed and angle. Shirts and confetti have drag, so measured data matters more than the ideal equation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="prototype">
+      <p class="eyebrow">Element G</p>
+      <h2>Final Prototype</h2>
+      <p>The final prototype is an air pressure launcher with clear subsystems. Replace the generic names below with exact part names from the final build.</p>
+      <div class="grid">
+        <div class="photo-placeholder">Insert labeled subsystem diagram</div>
+        <div class="card">
+          <h3>Subsystems</h3>
+          <ul>
+            <li>Air chamber or tank stores energy.</li>
+            <li>Pressure gauge confirms operating state.</li>
+            <li>Fill valve prepares the system.</li>
+            <li>Release valve or trigger launches the payload.</li>
+            <li>Launch tube guides the payload.</li>
+            <li>Frame and labels support safe use.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="testing">
+      <p class="eyebrow">Elements H and I</p>
+      <h2>Testing and Analysis</h2>
+      <p>The testing plan connects each major requirement to objective data: range, reload time, usability, and safety review.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Test Condition</th>
+            <th>Trial 1</th>
+            <th>Trial 2</th>
+            <th>Trial 3</th>
+            <th>Average</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>30 psi range</td>
+            <td>33 ft</td>
+            <td>36 ft</td>
+            <td>36 ft</td>
+            <td>35 ft</td>
+          </tr>
+          <tr>
+            <td>45 psi range</td>
+            <td>61 ft</td>
+            <td>65 ft</td>
+            <td>63 ft</td>
+            <td>63 ft</td>
+          </tr>
+          <tr>
+            <td>60 psi range</td>
+            <td>80 ft</td>
+            <td>84 ft</td>
+            <td>82 ft</td>
+            <td>82 ft</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="bars" aria-label="Placeholder pressure versus range chart">
+        <div class="bar-row"><span>30 psi</span><div class="bar-track"><div class="bar-fill" style="width: 43%;"></div></div><span>35 ft</span></div>
+        <div class="bar-row"><span>45 psi</span><div class="bar-track"><div class="bar-fill" style="width: 77%;"></div></div><span>63 ft</span></div>
+        <div class="bar-row"><span>60 psi</span><div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div><span>82 ft</span></div>
+      </div>
+      <div class="callout">These are placeholder values. Replace them with real measurements before submitting.</div>
+    </section>
+
+    <section id="evaluation">
+      <p class="eyebrow">Element J</p>
+      <h2>External Evaluation</h2>
+      <p>The final portfolio should include feedback from at least one stakeholder and one technical reviewer. Use names, roles, dates, and direct comments.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Stakeholder Review</h3>
+          <p>Placeholder: Leadership feedback said the gauge and checklist made the launcher easier to understand than the old cannon.</p>
+        </div>
+        <div class="card">
+          <h3>Technical Review</h3>
+          <p>Placeholder: Technical feedback focused on pressure limits, permanent mounting, and clearer safety labels.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="reflection">
+      <p class="eyebrow">Elements K and L</p>
+      <h2>Reflection and Recommendations</h2>
+      <p>The biggest lesson from this project was that the simplest-looking design is not always the simplest design to build. The spring design looked simple on paper, but the force requirements made it risky and hard to manufacture. The air pressure version looked more complicated at first, but it was easier to adjust, test, and explain.</p>
+      <p>The pivot was the most important engineering decision. It showed that the design process is not about defending the first idea. It is about changing the design when evidence shows a better path.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Recommendations</h3>
+          <ul>
+            <li>Add permanent brackets and a transport case.</li>
+            <li>Attach the operating checklist directly to the frame.</li>
+            <li>Test more payload shapes and masses.</li>
+            <li>Add a fixed angle indicator for repeatability.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Appendix To Add</h3>
+          <ul>
+            <li>CAD or labeled drawings</li>
+            <li>Raw test data</li>
+            <li>Build photos</li>
+            <li>Reviewer feedback forms</li>
+            <li>APA citations</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Draft portfolio website for Hudson Tien. Replace all placeholder data with final prototype evidence before publishing.
+  </footer>
+
+  <script>
+    document.querySelector(".theme-toggle").addEventListener("click", () => {
+      const html = document.documentElement;
+      html.dataset.theme = html.dataset.theme === "dark" ? "light" : "dark";
+    });
+  </script>
+</body>
+</html>
+
