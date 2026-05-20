@@ -153,6 +153,17 @@
       font-size: 1.2rem;
       color: var(--color-accent);
     }
+    .timeline {
+      display: grid;
+      gap: 0.45rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .timeline li {
+      border-left: 3px solid var(--color-accent);
+      padding-left: 0.65rem;
+    }
     details {
       border-top: 1px solid var(--color-line);
       padding-top: 0.75rem;
@@ -236,12 +247,24 @@
         </div>
         <div class="block">
           <h2>Build Procedure</h2>
-          <p>Research, spring concept, feasibility review, air pressure pivot, prototype build, safety labeling, range testing, usability testing.</p>
+          <ol>
+            <li>Identified the event-launcher problem and user needs.</li>
+            <li>Compared hand throwing, commercial launchers, the old cannon, and spring concepts.</li>
+            <li>Pivoted from spring force to air pressure after feasibility review.</li>
+            <li>Built paired pipe assemblies with gauge, valves, handle, and brackets.</li>
+            <li>Added paint, directions, and testing procedure.</li>
+          </ol>
         </div>
-        <details>
-          <summary>Review note</summary>
-          <p>Replace generic subsystem names with exact part names from the final build.</p>
-        </details>
+        <div class="block">
+          <h2>Project Timeline</h2>
+          <ul class="timeline">
+            <li>Problem validation and stakeholder need</li>
+            <li>Research and similar-solution comparison</li>
+            <li>Spring concept and feasibility review</li>
+            <li>Air pressure prototype build</li>
+            <li>Directions, photos, testing, and final presentation</li>
+          </ul>
+        </div>
       </article>
       <article class="panel">
         <div class="panel-title">Testing and Results</div>
@@ -268,22 +291,18 @@
           </div>
         </div>
         <div class="block">
-          <h2>Conclusion</h2>
+          <h2>Conclusions/Reflections</h2>
           <p>The air pressure version better solves the event problem because it balances useful launch distance with simple controls, visible safety checks, and repeatable testing.</p>
+          <p>The biggest lesson was that a design is not successful just because it launches something. It is successful when the intended users can understand it, operate it, and repeat the process safely.</p>
         </div>
         <div class="block">
-          <h2>Next Steps</h2>
-          <ul>
-            <li>Add permanent brackets.</li>
-            <li>Attach operating checklist to the frame.</li>
-            <li>Test more payload shapes.</li>
-            <li>Add a fixed angle indicator.</li>
-          </ul>
+          <h2>Why Graphics Matter</h2>
+          <p>Graphics help the audience connect the idea to the physical prototype. They let viewers picture the launcher in action, understand what matters first, and see where future improvements could be made. In a complex project, order matters; visuals help turn a confusing explanation into a clear pitch.</p>
         </div>
-        <details>
-          <summary>Review note</summary>
-          <p>Replace all results with actual measured data and add one graph before printing.</p>
-        </details>
+        <div class="block">
+          <h2>How the Display Helps</h2>
+          <p>The three-panel board sorts and compresses the project. It tells judges that the essential information is here and that I will walk them through it. Proper judging requires proper communication, and the display is the communication medium.</p>
+        </div>
       </article>
     </section>
   </main>
